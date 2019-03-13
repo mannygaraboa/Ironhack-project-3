@@ -2,23 +2,20 @@ import React, { Component } from 'react';
 import api from '../../api';
 
 export default class Login extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
+  state = {
       username: "",
       password: "",
       message: null
     }
-    this.handleInputChange = this.handleInputChange.bind(this)
-  }
 
-  handleInputChange(event) {
+
+  handleInputChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
-  handleClick(e) {
+  handleClick = (e) => {
     e.preventDefault()
     api.login(this.state.username, this.state.password)
       .then(result => {

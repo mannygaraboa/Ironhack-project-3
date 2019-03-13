@@ -31,7 +31,7 @@ body {
   border-radius: 10px;
   display: inline-block;
   background-color: #5776e9;
-  color: white;
+  color:$primary;
 }
 
 .info.info-danger {
@@ -88,6 +88,9 @@ body {
 .Home {
   p {
     font-size: 1.2em;
+  }
+  img{
+    width:350px;
   }
 }
 
