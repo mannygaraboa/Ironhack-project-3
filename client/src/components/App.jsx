@@ -21,7 +21,7 @@ export default class App extends Component {
     countries: [],
     user: {},
     photos: [],
-    searchTerm: 'chair'
+    searchTerm: 'nature'
   };
 
   componentDidMount() {
@@ -60,8 +60,8 @@ export default class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">MERN Boilerplate</h1>
-          user: {this.state.user.username}
+          <h1 className="App-title">Lily Pad</h1>
+          {this.state.user.username}
           <NavLink to="/" exact>
             Home
           </NavLink>
@@ -78,7 +78,7 @@ export default class App extends Component {
           <Route
             exact
             path="/"
-            render={props => <Home {...props} setUser={this.setUser} photos={this.state.photos} />}
+            // render={props => <Home {...props} setUser={this.setUser} photos={this.state.photos} />}
           />
           <Route
             path="/signup"
@@ -91,20 +91,12 @@ export default class App extends Component {
 
           <Route render={() => <h2>404</h2>} />
         </Switch>
+        
+        <div className="lilyPadBackground" style={{backgroundImage: `url('./images/lilypond1.jpg')` }} alt="background">          
+        </div>
+      
       </div>
     );
   }
 }
 
-/*          <Route
-            path='/'
-            render={(props) => <Home {...props} setUser={this.setUser} />}
-          />
-          <Route
-            path='/signup'
-            render={(props) => <Signup {...props} setUser={this.setUser} />}
-          />
-          <Route
-            path='/login'
-            render={(props) => <Login {...props} setUser={this.setUser}/>}
-          />*/
