@@ -20,8 +20,8 @@ export default class Home extends Component {
     let allPhotos = this.props.photos.map((eachPhoto, i)=>{
       return (
         <li key={i}>
-              <img src={eachPhoto.links.download} />
-              <i>{eachPhoto.description}</i>
+          <img src={eachPhoto.links.download} />
+          <i>{eachPhoto.description}</i>
         </li>
       )
     })

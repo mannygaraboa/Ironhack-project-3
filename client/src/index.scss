@@ -45,7 +45,7 @@ body {
   
 
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
     height: 80px;
   }
 
@@ -85,14 +85,17 @@ body {
 }
 
 .lilyPadBackground {
-  //background-image: src("../../../images/lilypond1.jpg");
   width: 100%;
   height: 800px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
 
-  // style={{backgroundImage: `url(/images/covers/${item.cover})`}}
+.container {
+  width: 100%;
+  height: 800px;
+  background-color: red;
 }
 
 // --------------------

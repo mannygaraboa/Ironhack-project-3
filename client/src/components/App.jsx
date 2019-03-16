@@ -11,8 +11,7 @@ import Unsplash from "unsplash-js";
 import Axios from "axios";
 
 const unsplash = new Unsplash({
-  applicationId:
-    "30a84d7934c6160f90889c0a168475732b2d48edf6b7e3022b737e00e6834f36",
+  applicationId: "30a84d7934c6160f90889c0a168475732b2d48edf6b7e3022b737e00e6834f36",
   secret: "8be63f741ae5a46cb025d67bb6ca85c3624b1192ebad3483c7436867778696be"
 });
 
@@ -57,7 +56,10 @@ export default class App extends Component {
 
   render() {
     return (
+      //Landing Page
       <div className="App">
+        <div className="lilyPadBackground" style={{backgroundImage: `url('./images/lilypond1.jpg')` }} alt="background">          
+          
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Lily Pad</h1>
@@ -91,10 +93,32 @@ export default class App extends Component {
 
           <Route render={() => <h2>404</h2>} />
         </Switch>
-        
-        <div className="lilyPadBackground" style={{backgroundImage: `url('./images/lilypond1.jpg')` }} alt="background">          
         </div>
-      
+
+
+        <div className="container">
+          <h1 className="about">About</h1>
+          <div className="row">
+            <div className="col-lg-4">
+              <img className="col-img" alt="firstImage" />
+              <h6><b>KING OF ANTIOXIDANTS</b></h6>
+              <p>Antioxidants can protect and reverse some of the damage. They also boost your immunity.</p>
+            </div>
+
+            <div className="col-lg-4">
+              <img className="col-img" alt="firstImage" />
+              <h6><b>KING OF ANTIOXIDANTS</b></h6>
+              <p>Antioxidants can protect and reverse some of the damage. They also boost your immunity.</p>
+            </div>
+
+            <div className="col-lg-4">
+              <img className="col-img" alt="firstImage" />
+              <h6><b>KING OF ANTIOXIDANTS</b></h6>
+              <p>Antioxidants can protect and reverse some of the damage. They also boost your immunity.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     );
   }
