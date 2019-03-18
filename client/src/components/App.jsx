@@ -56,64 +56,68 @@ export default class App extends Component {
 
   render() {
     return (
-      //Landing Page
+      // Landing Page
+      // style={{backgroundImage: `url('./images/lilypond1.jpg')` }}
       <div className="App">
-        <div className="lilyPadBackground" style={{backgroundImage: `url('./images/lilypond1.jpg')` }} alt="background">          
-          
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Lily Pad</h1>
-          {this.state.user.username}
-          <NavLink to="/" exact>
-            Home
-          </NavLink>
-          {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
-          {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
-          {api.isLoggedIn() && (
-            <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-              Logout
-            </Link>
-          )}
-          <NavLink to="/secret">Secret</NavLink>
-        </header>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            // render={props => <Home {...props} setUser={this.setUser} photos={this.state.photos} />}
-          />
-          <Route
-            path="/signup"
-            render={props => <Signup {...props} setUser={this.setUser} />}
-          />
-          <Route
-            path="/login"
-            render={props => <Login {...props} setUser={this.setUser} />}
-          />
+        <div className="lilyPadBackground"  alt="background">          
+          <header className="App-header">
+            <h1 className="App-title">Lily Pad</h1>
+            {this.state.user.username}
+            <NavLink to="/" exact>
+              Home
+            </NavLink>
+            {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
+            {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
+            {api.isLoggedIn() && (
+              <Link to="/" onClick={e => this.handleLogoutClick(e)}>
+                Logout
+              </Link>
+            )}
+            <NavLink to="/secret">Secret</NavLink>
+          </header>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              // render={props => <Home {...props} setUser={this.setUser} photos={this.state.photos} />}
+            />
+            <Route
+              path="/signup"
+              render={props => <Signup {...props} setUser={this.setUser} />}
+            />
+            <Route
+              path="/login"
+              render={props => <Login {...props} setUser={this.setUser} />}
+            />
 
-          <Route render={() => <h2>404</h2>} />
-        </Switch>
+            <Route render={() => <h2>404</h2>} />
+          </Switch>
+
+          <div className="intro">
+            <h2 className="welcome">Welcome to Lily Pad</h2>
+          </div>
         </div>
+
 
 
         <div className="container">
           <h1 className="about">About</h1>
           <div className="row">
-            <div className="col-lg-4">
-              <img className="col-img" alt="firstImage" />
-              <h6><b>KING OF ANTIOXIDANTS</b></h6>
+            <div className="col-lg-4" >
+              <img className="icons" src={('../../images/lily-pad-icon.png')} alt="firstImage" />
+              <h6><b>Lily Pad</b></h6>
               <p>Antioxidants can protect and reverse some of the damage. They also boost your immunity.</p>
             </div>
 
             <div className="col-lg-4">
-              <img className="col-img" alt="firstImage" />
-              <h6><b>KING OF ANTIOXIDANTS</b></h6>
+              <img className="icons" src={('../../images/golden-ratio.png')} alt="secondImage" />
+              <h6><b>Golden Ratio</b></h6>
               <p>Antioxidants can protect and reverse some of the damage. They also boost your immunity.</p>
             </div>
 
             <div className="col-lg-4">
-              <img className="col-img" alt="firstImage" />
-              <h6><b>KING OF ANTIOXIDANTS</b></h6>
+              <img className="icons" src={('../../images/sun-icon.png')} alt="thirdImage" />
+              <h6><b>Enlightenment</b></h6>
               <p>Antioxidants can protect and reverse some of the damage. They also boost your immunity.</p>
             </div>
           </div>
