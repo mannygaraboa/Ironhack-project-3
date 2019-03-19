@@ -3,8 +3,6 @@ import Axios from 'axios';
 import api from '../../api'
 
 export default class Home extends Component {
-
-  
   componentDidMount(){
 
     // console.log(api.isLoggedIn())

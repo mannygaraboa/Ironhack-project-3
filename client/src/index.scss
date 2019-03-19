@@ -1,6 +1,6 @@
 // --------------------
 // Definition of variables
-$primary: rgb(14, 185, 85);
+$primary: (rgb(14, 185, 85));
 
 
 // ----------------------------------------
@@ -49,11 +49,16 @@ body {
   //   height: 80px;
   // }
 
+  .header {
+    text-align: center;
+  }
+
   .App-header {
     background-color: $primary;
     padding: 20px;
     color: white;
     font-weight: bold;
+    text-align: inherit;
 
     a {
       color: white;
@@ -88,7 +93,7 @@ body {
 
 .lilyPadBackground {
   width: 100%;
-  height: 500px;
+  height: 700px;
   background-color: $primary;
   background-size: cover;
   background-repeat: no-repeat;
@@ -97,11 +102,30 @@ body {
 
 .intro {
   color: white;
+  margin-right: 50%;
+}
+
+.white-square {
+  background-color: white;
+  color: gray;
+  width: 400px;
+  height: 450px;
+  border-radius: 5px;
+  margin-left: 60%;
+  margin-bottom: 100px;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px 1px #4d4d4d;
+}
+
+.register-button {
+  border-radius: 5px;
+  background-color: $primary;
+  color: white;
 }
 
 .container {
   width: 100%;
-  height: 500px;
+  height: 400px;
   background-color: white;
   background-repeat: no-repeat;
   background-position: center;
