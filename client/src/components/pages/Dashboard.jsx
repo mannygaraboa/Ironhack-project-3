@@ -12,9 +12,6 @@ class Dashboard extends Component {
       <div className="Dashboard">
         <Link to={"/Books"}>Click here to go to books</Link>
       </div>
-
-
-
     );
   }
 }

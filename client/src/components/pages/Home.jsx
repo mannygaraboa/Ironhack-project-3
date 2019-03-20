@@ -14,17 +14,17 @@ export default class Home extends Component {
 
   }
 
-  showPhotos = () => {
-    let allPhotos = this.props.photos.map((eachPhoto, i)=>{
-      return (
-        <li key={i}>
-          <img src={eachPhoto.links.download} />
-          <i>{eachPhoto.description}</i>
-        </li>
-      )
-    })
-    return allPhotos
-  }
+  // showPhotos = () => {
+  //   let allPhotos = this.props.photos.map((eachPhoto, i)=>{
+  //     return (
+  //       <li key={i}>
+  //         <img src={eachPhoto.links.download} />
+  //         <i>{eachPhoto.description}</i>
+  //       </li>
+  //     )
+  //   })
+  //   return allPhotos
+  // }
 
 
   render() {                

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link, NavLink, Switch } from "react-router-dom";
+import { Route, Link, NavLink, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 
 import Login from "./pages/Login";
@@ -8,7 +8,6 @@ import Milestones from "./pages/Milestones";
 import Books from "./pages/Books";
 import api from "../api";
 import Dashboard from "./pages/Dashboard";
-
 // ES Modules syntax
 // import Unsplash from "unsplash-js";
 // import Axios from "axios";
@@ -46,6 +45,7 @@ export default class App extends Component {
   setUser = () => {
     if (api.isLoggedIn()) {
       this.setState({ user: api.getLocalStorageUser() });
+      
     } else {
       this.setState({ user: {} });
     }
@@ -77,6 +77,7 @@ export default class App extends Component {
                   Logout
                 </Link>
               )}
+              <NavLink to="/dashboard">{api.isLoggedIn() ? `Welcome, ${this.state.user.username}!` :null}</NavLink>
               {/* <NavLink to="/secret">Secret</NavLink> */}
             </div>
           </header>
@@ -129,7 +130,7 @@ export default class App extends Component {
             </p>
           </div>
 
-          <div className="white-square">
+          {/* <div className="white-square">
             <h1 className="register">Register</h1>
             <form>
               Username:{" "}
@@ -163,8 +164,9 @@ export default class App extends Component {
                 Signup
               </button>
             </form>
-          </div>
-        </div>
+          </div> */}
+ 
+        </div> 
 
         <div className="container">
           <h1 className="about">About</h1>

@@ -17,6 +17,7 @@ export default class Signup extends Component {
 
   handleClick = (e) => {
     e.preventDefault()
+
     let data = {
       username: this.state.username,
       name: this.state.name,
@@ -26,7 +27,7 @@ export default class Signup extends Component {
       .then(result => {
         console.log('SUCCESS!')
         this.props.setUser()
-        this.props.history.push("/") // Redirect to the home page
+        this.props.history.push("/dashboard") // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
