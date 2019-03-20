@@ -70,7 +70,7 @@ export default class App extends Component {
               <NavLink to="/" exact>
                 Home
               </NavLink>
-              {/* {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>} */}
+              {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
               {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
               {api.isLoggedIn() && (
                 <Link to="/" onClick={e => this.handleLogoutClick(e)}>
