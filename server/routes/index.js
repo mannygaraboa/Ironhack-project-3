@@ -22,5 +22,11 @@ router.get('/getBooks', (req,res,next)=>{
   })
 })
 
+router.delete('/delete/:id', (req,res,next)=>{
+  Book.findByIdAndDelete(req.params.id).then(books=>{
+    res.json({books:books})
+  })
+})
+
 
 module.exports = router;

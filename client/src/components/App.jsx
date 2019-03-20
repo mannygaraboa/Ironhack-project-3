@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Route, Link, NavLink, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
+import { SERVER_URL } from "./config"
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Milestones from "./pages/Milestones";
+// import Milestones from "./pages/Milestones";
 import Books from "./pages/Books";
 import api from "../api";
 import Dashboard from "./pages/Dashboard";

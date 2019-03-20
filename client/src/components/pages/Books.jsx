@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Route, Link, NavLink, Switch } from "react-router-dom";
 import axios from "axios"
+import { SERVER_URL } from "../config"
+
 class Books extends Component 
 {
   state = {
@@ -9,7 +11,8 @@ class Books extends Component
 
   componentDidMount() 
   {
-    axios.get('http://localhost:5000/api/getBooks').then(res=>{
+    axios.get(`${SERVER_URL}/getbooks`).then(res=>{
+    // axios.get('http://localhost:5000/api/getBooks').then(res=>{
       console.log(res)
       this.setState({
         books:res.data.books
@@ -21,7 +24,8 @@ class Books extends Component
     e.preventDefault()
     console.log(e.target.book.value)
     let book = e.target.book.value;
-    axios.post('http://localhost:5000/api/saveBook', {name:book}).then(res=>{
+    axios.post(`${SERVER_URL}/saveBook`, {name:book}).then(res=>{
+    // axios.post('http://localhost:5000/api/saveBook', {name:book}).then(res=>{
       
       let books = [...this.state.books]
       books.push({name:book})
@@ -45,8 +49,9 @@ class Books extends Component
 
   deleteButton = (index, id) => // Delete a Book 
   {
-    axios.delete(`http://localhost:5000/api/delete/${id}`).then(res=> {
-      console.log("index is " + index)
+    axios.delete(`${SERVER_URL}/delete/${id}`).then(res=> {
+    // axios.delete(`http://localhost:5000/api/delete/${id}`).then(res=> {
+    // console.log("index is " + index)
       
     let copyBooks = [...this.state.books];
 
