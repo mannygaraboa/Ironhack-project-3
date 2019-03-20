@@ -63,6 +63,20 @@ export default {
       .get('/logout')
   },
 
+  // Method addPicture
+  addPicture(file) {
+    const formData = new FormData();
+    formData.append("picture", file)
+    return service
+      .post('/users/first-user/pictures', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
   // This is an example on how to use this method in a different file
   // api.getCountries().then(countries => { /* ... */ })
  

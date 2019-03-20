@@ -130,7 +130,7 @@ export default class App extends Component {
             </p>
           </div>
 
-          <div className="white-square">
+          {/* <div className="white-square">
             <h1 className="register">Register</h1>
             <form>
               Username:{" "}
@@ -164,7 +164,7 @@ export default class App extends Component {
                 Signup
               </button>
             </form>
-          </div>
+          </div> */}
  
         </div> 
 

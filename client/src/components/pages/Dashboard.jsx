@@ -19,6 +19,8 @@ class Dashboard extends Component {
         <Link to={"/Videos"}>Click here to go to Videos</Link>
         <br />
         <Link to={"/Experiences"}>Click here to go to Experiences</Link>
+        <br />
+        <Link to={"/Profile"}>Profile</Link>
       </div>
       
     );

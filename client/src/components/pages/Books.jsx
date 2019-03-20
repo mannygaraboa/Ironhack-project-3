@@ -7,7 +7,8 @@ class Books extends Component
     books:[]
   }
 
-  componentDidMount() {
+  componentDidMount() 
+  {
     axios.get('http://localhost:5000/api/getBooks').then(res=>{
       console.log(res)
       this.setState({
@@ -36,21 +37,44 @@ class Books extends Component
       return (
         <div key={index} className="one-book">
           <li className="one-book-name">{oneBook.name}</li>
-          <button onClick={()=>this.deleteButton(index)} className="delete-book">Delete</button>
+          <button onClick={()=>this.deleteButton(index, oneBook._id)} className="delete-book">Delete</button>
         </div>
       )
     })
   }
 
-  deleteButton = (index) => // Delete a Book 
+  deleteButton = (index, id) => // Delete a Book 
   {
+    axios.delete(`http://localhost:5000/api/delete/${id}`).then(res=> {
+      console.log("index is " + index)
+      
     let copyBooks = [...this.state.books];
+
+      // console.log("copyBooks is:")
+      // console.log(copyBooks)
+      // console.log(this.state.books)
 
     copyBooks.splice(index, 1)
     this.setState({
       books: copyBooks
     })
+      // console.log("copyBooks is:")
+      // console.log(copyBooks)
+      // console.log(this.state.books)
+      // console.log("copyBooks.length is " + copyBooks.length)
+    })
   }
+
+
+  // axios.get('http://localhost:5000/api/delete').then(res=>
+  //   {
+  //     console.log(res)
+  //     copyBooks.splice(index, 1)
+  //     this.setState({
+  //       books: copyBooks
+  //     })
+  //   })
+  // }
 
   render () 
   {
@@ -61,6 +85,8 @@ class Books extends Component
           <input name="book" type="text" />
           <button type="submit">Add</button>
         </form>
+        <br />
+        <Link to={"/Dashboard"}>Dashboard</Link>
         {this.showBooks()}
       </div>
     )
