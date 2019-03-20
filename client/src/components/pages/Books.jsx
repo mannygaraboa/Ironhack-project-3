@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Route, Link, NavLink, Switch } from "react-router-dom";
 import axios from "axios"
-class Books extends Component {
+class Books extends Component 
+{
   state = {
-      books:[]
+    books:[]
   }
 
   componentDidMount() {
@@ -14,7 +15,8 @@ class Books extends Component {
       })
     })
   }
-  handleSubmit = (e) => {
+  handleSubmit = (e) => 
+  {
     e.preventDefault()
     console.log(e.target.book.value)
     let book = e.target.book.value;
@@ -28,28 +30,40 @@ class Books extends Component {
     })
   }
 
-  showBooks = () => {
-    return this.state.books.map(book=>{
-      return <li>{book.name}</li>
+  showBooks = () => 
+  {
+    return this.state.books.map((oneBook, index)=>{
+      return (
+        <div key={index} className="one-book">
+          <li className="one-book-name">{oneBook.name}</li>
+          <button onClick={()=>this.deleteButton(index)} className="delete-book">Delete</button>
+        </div>
+      )
     })
   }
 
-  render () {
+  deleteButton = (index) => // Delete a Book 
+  {
+    let copyBooks = [...this.state.books];
+
+    copyBooks.splice(index, 1)
+    this.setState({
+      books: copyBooks
+    })
+  }
+
+  render () 
+  {
     return (
       <div className="Books">
         <h1>Your crud goes here</h1>
-        {this.showBooks()}
         <form onSubmit={this.handleSubmit}>
           <input name="book" type="text" />
-          <button type="submit"></button>
+          <button type="submit">Add</button>
         </form>
+        {this.showBooks()}
       </div>
-      
-
-
-    );
+    )
   }
-
 }
-
 export default Books; 
