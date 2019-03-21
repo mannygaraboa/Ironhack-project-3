@@ -3,11 +3,11 @@ import { Route, Link, NavLink, Switch } from "react-router-dom";
 import api from '../../api';
 import Axios from "axios";
 import {SERVER_URL} from '../config'
-class Profile extends Component {
+class MyProfile extends Component {
   state={}
   componentDidMount(){
     console.log(this)
-    Axios.get(`${SERVER_URL}/profile/${this.props.match.params.id}`).then(person=>{
+    Axios.get(`${SERVER_URL}/profile`).then(person=>{
       console.log(person)
       this.setState({user:person.data.u, books:person.data.books})
     })
@@ -17,7 +17,7 @@ class Profile extends Component {
     console.log(this)
     const {username, pictureUrl, created_at, updated_at} = {...this.state.user}
     return (
-      <div className="Profile">
+      <div className="MyProfile">
         <p>Hello You {username}</p>
         <img src={pictureUrl} />
       </div>
@@ -26,4 +26,4 @@ class Profile extends Component {
 }
 
 
-export default Profile;
+export default MyProfile;

@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
-  name:String
+  name:String,
+  userId: {
+    type:Schema.Types.ObjectId,
+    ref:"User"
+  }
 }, {
     timestamps: {
       createdAt: 'created_at',

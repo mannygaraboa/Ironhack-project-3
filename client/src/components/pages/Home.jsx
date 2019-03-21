@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import api from '../../api'
-
+import Books from './Books'
 export default class Home extends Component {
   constructor(props) {
     super(props)
@@ -29,6 +29,8 @@ export default class Home extends Component {
           <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
           <button type="submit">Save new profile picture</button>
         </form>
+
+        <Books {...this.props} />
       </div>
     );
   }

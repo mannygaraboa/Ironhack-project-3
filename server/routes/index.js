@@ -7,11 +7,23 @@ const User = require('../models/User')
 
 
 router.get("/profile/:id", (req, res, next) => {
-  User.findById(req.params.id).then(u=>res.json({u}))
+  let id = req.params.id; 
+  Book.find({userId:id}).then(books=>{
+    User.findById(id).then(u=>res.json({u, books}))
+  })
 })
 
-router.post('/saveBook', (req,res,next)=>{
+
+router.get("/profile", (req, res, next) => {
+  let id = req.user.id; 
+  Book.find({userId:id}).then(books=>{
+    User.findById(id).then(u=>res.json({u, books}))
+  })
+})
+
+router.post('/saveBook', isLoggedIn, (req,res,next)=>{
   let book = new Book(req.body)
+  book.userId = req.user._id
   book.save((err,doc)=>{
     res.json(doc)
   })

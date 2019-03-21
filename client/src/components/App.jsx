@@ -10,6 +10,8 @@ import Books from "./pages/Books";
 import api from "../api";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile"
+import MyProfile from "./pages/MyProfile"
+
 // ES Modules syntax
 // import Unsplash from "unsplash-js";
 // import Axios from "axios";
@@ -77,17 +79,28 @@ export default class App extends Component {
               {!api.isLoggedIn() && <NavLink to="/dashboard">Dashboard</NavLink>}
               {api.isLoggedIn() && (
                 <div>
-                  <Link to="/dashboard" onClick={e => this.handleLogoutClick(e)}>
+                  {/* <Link to="/dashboard" onClick={e => this.handleLogoutClick(e)}>
                     Dashboard
                   </Link>
                   <br />
-                  <Link to="/Profile" onClick={e => this.handleLogoutClick(e)}>
+                  <Link to="/MyProfile" onClick={e => this.handleLogoutClick(e)}>
                     Profile
                   </Link>
                   <br />
                   <Link to="/" onClick={e => this.handleLogoutClick(e)}>
                     Logout
+                  </Link> */}
+                  <Link to="/dashboard" >
+                    Dashboard
                   </Link>
+                  <br />
+                  <Link to="/my-profile" >
+                    my Profile
+                  </Link>
+                  <br />
+                  <Link to="/" onClick={e => this.handleLogoutClick(e)}>
+                    Logout
+                  </Link>                  
                 </div>
               )}
               <NavLink to="/dashboard">{api.isLoggedIn() ? `Welcome, ${this.state.user.username}!` :null}</NavLink>
@@ -113,13 +126,22 @@ export default class App extends Component {
               render={props => <Dashboard {...props} setUser={this.setUser} />}
             />
              <Route
-              exact path="/profile/:id"
+              path="/my-profile"
+              render={props => <MyProfile {...props} setUser={this.setUser} />}
+            />   
+         <Route
+              path="/profile/:id"
               render={props => <Profile {...props} setUser={this.setUser} />}
-            />            
-            <Route
+            />   
+
+
+
+
+                     
+            {/* <Route
               path="/books"
               render={props => <Books {...props} setUser={this.setUser} kind="books" />}
-            />
+            /> */}
             {/* <Route
               path="/music"
               render={props => <Music {...props} setUser={this.setUser} />}
