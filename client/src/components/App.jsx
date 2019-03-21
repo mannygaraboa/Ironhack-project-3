@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Books from "./pages/Books";
 import api from "../api";
 import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile"
 // ES Modules syntax
 // import Unsplash from "unsplash-js";
 // import Axios from "axios";
@@ -67,16 +68,27 @@ export default class App extends Component {
           <header className="App-header">
             <div className="header">
               <h1 className="App-title">Lilypad</h1>
-              {this.state.user.username}
+              {/* {this.state.user.username} */}
               <NavLink to="/" exact>
                 Home
               </NavLink>
               {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
               {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
+              {!api.isLoggedIn() && <NavLink to="/dashboard">Dashboard</NavLink>}
               {api.isLoggedIn() && (
-                <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-                  Logout
-                </Link>
+                <div>
+                  <Link to="/dashboard" onClick={e => this.handleLogoutClick(e)}>
+                    Dashboard
+                  </Link>
+                  <br />
+                  <Link to="/Profile" onClick={e => this.handleLogoutClick(e)}>
+                    Profile
+                  </Link>
+                  <br />
+                  <Link to="/" onClick={e => this.handleLogoutClick(e)}>
+                    Logout
+                  </Link>
+                </div>
               )}
               <NavLink to="/dashboard">{api.isLoggedIn() ? `Welcome, ${this.state.user.username}!` :null}</NavLink>
               {/* <NavLink to="/secret">Secret</NavLink> */}
@@ -86,7 +98,7 @@ export default class App extends Component {
             <Route
               exact
               path="/"
-              // render={props => <Home {...props} setUser={this.setUser} photos={this.state.photos} />}
+              render={props => <Home {...props} setUser={this.setUser} photos={this.state.photos} />}
             />
             <Route
               exact path="/signup"
@@ -99,6 +111,10 @@ export default class App extends Component {
             <Route
               path="/dashboard"
               render={props => <Dashboard {...props} setUser={this.setUser} />}
+            />
+             <Route
+              exact path="/profile/:id"
+              render={props => <Profile {...props} setUser={this.setUser} />}
             />            
             <Route
               path="/books"
@@ -219,6 +235,11 @@ export default class App extends Component {
             </div>
           </div>
         </div>
+
+        <div className="components">
+          <h1 className="share">What to Share</h1>
+        </div>
+
       </div>
     );
   }

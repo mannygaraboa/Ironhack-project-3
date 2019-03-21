@@ -68,7 +68,7 @@ export default {
     const formData = new FormData();
     formData.append("picture", file)
     return service
-      .post('/users/first-user/pictures', formData, {
+      .post('/add-profile-pic', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

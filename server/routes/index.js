@@ -2,11 +2,12 @@ const express = require('express');
 const { isLoggedIn } = require('../middlewares')
 const router = express.Router();
 const Book = require('../models/Book')
+const parser = require('../configs/cloudinary')
+const User = require('../models/User')
 
 
-router.get("/whatever", (req, res, next) => {
-  console.log('in whatever',req.user)
-  res.json({user:req.user})
+router.get("/profile/:id", (req, res, next) => {
+  User.findById(req.params.id).then(u=>res.json({u}))
 })
 
 router.post('/saveBook', (req,res,next)=>{
@@ -28,5 +29,25 @@ router.delete('/delete/:id', (req,res,next)=>{
   })
 })
 
+// isLoggedIn => make sure the user is connected
+// parser.single('picture') => extract from the field 'picture' the file and define req.file (and req.file.url)
+router.post('/add-profile-pic', isLoggedIn, parser.single('picture'), (req, res, next) => {
+  console.log('whaysuppppppp', req.json, req.file)
+  User.findByIdAndUpdate(req.user._id, { pictureUrl: req.file.url })
+    .then(() => {
+      res.json({
+        success: true,
+        pictureUrl: req.file.url
+      })
+    })
+    .catch(err => next(err))
+});
+
+
+
+router.get('/allUsers', (req, res, next) => {
+  console.log('all')
+  User.find().then(all=>res.json({all}))
+})
 
 module.exports = router;

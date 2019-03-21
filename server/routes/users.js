@@ -8,3 +8,5 @@ router.post('/first-user/pictures', parser.single('picture'), (req, res, next) =
       })
     })
 });
+
+//make a default pic in the URL. Users can adda picture later on

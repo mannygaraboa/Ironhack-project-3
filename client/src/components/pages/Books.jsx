@@ -25,7 +25,7 @@ class Books extends Component
     console.log(e.target.book.value)
     let book = e.target.book.value;
     axios.post(`${SERVER_URL}/saveBook`, {name:book}).then(res=>{
-    // axios.post('http://localhost:5000/api/saveBook', {name:book}).then(res=>{
+    //axios.post('http://localhost:5000/api/saveBook', {name:book}).then(res=>{
       
       let books = [...this.state.books]
       books.push({name:book})
@@ -54,10 +54,6 @@ class Books extends Component
     // console.log("index is " + index)
       
     let copyBooks = [...this.state.books];
-
-      // console.log("copyBooks is:")
-      // console.log(copyBooks)
-      // console.log(this.state.books)
 
     copyBooks.splice(index, 1)
     this.setState({
