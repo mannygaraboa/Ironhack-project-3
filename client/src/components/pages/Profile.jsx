@@ -4,12 +4,20 @@ import api from '../../api';
 import Axios from "axios";
 import {SERVER_URL} from '../config'
 class Profile extends Component {
-  state={}
+  state={
+    user:{},
+    books:[]
+  }
   componentDidMount(){
     console.log(this)
     Axios.get(`${SERVER_URL}/profile/${this.props.match.params.id}`).then(person=>{
       console.log(person)
       this.setState({user:person.data.u, books:person.data.books})
+    })
+  }
+  showBooks = () => {
+    return this.state.books.map(book=>{
+      return <li>{book.name}</li>
     })
   }
   
@@ -18,6 +26,7 @@ class Profile extends Component {
     const {username, pictureUrl, created_at, updated_at} = {...this.state.user}
     return (
       <div className="Profile">
+        {this.showBooks()}
         <p>Hello You {username}</p>
         <img src={pictureUrl} />
       </div>
