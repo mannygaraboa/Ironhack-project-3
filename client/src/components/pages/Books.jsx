@@ -81,7 +81,7 @@ class Books extends Component
   {
     return (
       <div className="Books">
-        <h1>Your crud goes here</h1>
+        <h1>Add Milestone</h1>
         <form onSubmit={this.handleSubmit}>
           <input name="book" type="text" />
           <button type="submit">Add</button>

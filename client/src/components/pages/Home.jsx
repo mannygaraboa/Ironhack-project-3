@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import api from '../../api'
 import Books from './Books'
+import Dashboard from "./Dashboard";
+import { Route, Link, NavLink, Switch, Redirect } from "react-router-dom";
 export default class Home extends Component {
   constructor(props) {
     super(props)
@@ -22,15 +24,16 @@ export default class Home extends Component {
   render() {                
     return (
       <div className="Home">
-        <h2>Home</h2>
-        <p>This is a sample project with the MERN stack</p>
+        <h2 className="check-users">See other lilypads!</h2>
+          <Link to="/dashboard" >Dashboard</Link>
+
         
-        <form onSubmit={(e)=>this.handleSubmit(e)}>
+        {/* <form onSubmit={(e)=>this.handleSubmit(e)}>
           <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
           <button type="submit">Save new profile picture</button>
-        </form>
+        </form> */}
 
-        <Books {...this.props} />
+        
       </div>
     );
   }

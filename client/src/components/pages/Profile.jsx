@@ -3,6 +3,7 @@ import { Route, Link, NavLink, Switch } from "react-router-dom";
 import api from '../../api';
 import Axios from "axios";
 import {SERVER_URL} from '../config'
+import Books from './Books'
 class Profile extends Component {
   state={
     user:{},
@@ -28,7 +29,9 @@ class Profile extends Component {
       <div className="Profile">
         {this.showBooks()}
         <p>Hello You {username}</p>
-        <img src={pictureUrl} />
+        <img src={pictureUrl} width="100px" height="100px"/>
+
+        <Books {...this.props} />
       </div>
     );
   }

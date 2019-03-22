@@ -70,15 +70,13 @@ export default class App extends Component {
           <header className="App-header">
             <div className="header">
               <h1 className="App-title">Lilypad</h1>
+              
               {/* {this.state.user.username} */}
-              <NavLink to="/" exact>
-                Home
-              </NavLink>
+              {!api.isLoggedIn() && <NavLink to="/">Home</NavLink>}
               {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
               {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
-              {!api.isLoggedIn() && <NavLink to="/dashboard">Dashboard</NavLink>}
               {api.isLoggedIn() && (
-                <div>
+                <div className = "navbar">
                   {/* <Link to="/dashboard" onClick={e => this.handleLogoutClick(e)}>
                     Dashboard
                   </Link>
@@ -90,23 +88,37 @@ export default class App extends Component {
                   <Link to="/" onClick={e => this.handleLogoutClick(e)}>
                     Logout
                   </Link> */}
+                  <Link to="/"> Home </Link>
+
                   <Link to="/dashboard" >
                     Dashboard
                   </Link>
-                  <br />
                   <Link to="/my-profile" >
                     my Profile
                   </Link>
-                  <br />
                   <Link to="/" onClick={e => this.handleLogoutClick(e)}>
                     Logout
                   </Link>                  
                 </div>
               )}
-              <NavLink to="/dashboard">{api.isLoggedIn() ? `Welcome, ${this.state.user.username}!` :null}</NavLink>
+              {/* <NavLink to="/dashboard">{api.isLoggedIn() ? `Welcome, ${this.state.user.username}!` :null}</NavLink> */}
               {/* <NavLink to="/secret">Secret</NavLink> */}
+
+              
             </div>
+
+            <h2 className="welcome">Welcome, {this.state.user.username}!</h2>
+              <p>
+                A social web application to help users find their path towards
+                Enlightenment
+              </p>
+
           </header>
+
+
+
+
+          
           <Switch>
             <Route
               exact
@@ -129,7 +141,7 @@ export default class App extends Component {
               path="/my-profile"
               render={props => <MyProfile {...props} setUser={this.setUser} />}
             />   
-         <Route
+            <Route
               path="/profile/:id"
               render={props => <Profile {...props} setUser={this.setUser} />}
             />   
@@ -161,13 +173,13 @@ export default class App extends Component {
             <Route render={() => <h2>404</h2>} />
           </Switch>
 
-          <div className="intro">
+          {/* <div className="intro">
             <h2 className="welcome">Welcome to Lilypad!</h2>
-            <p>
-              A social web application to help users find their path towards
-              Enlightenment
-            </p>
-          </div>
+              <p>
+                A social web application to help users find their path towards
+                Enlightenment
+              </p>
+          </div> */}
 
           {/* <div className="white-square">
             <h1 className="register">Register</h1>
@@ -258,9 +270,9 @@ export default class App extends Component {
           </div>
         </div>
 
-        <div className="components">
+        {/* <div className="components">
           <h1 className="share">What to Share</h1>
-        </div>
+        </div> */}
 
       </div>
     );

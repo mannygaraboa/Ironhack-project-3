@@ -8,6 +8,22 @@ class MyProfile extends Component {
     user:{},
     books:[]
   }
+
+
+
+  handleChange(e) {
+    this.setState({
+      file: e.target.files[0]
+    })
+  }
+  handleSubmit(e) {
+    e.preventDefault()
+    // Reuse of the method "addPicture" from the file '../api'
+    api.addPicture(this.state.file)
+  }
+
+
+
   componentDidMount(){
     console.log(this)
     Axios.get(`${SERVER_URL}/profile`).then(person=>{
@@ -27,10 +43,20 @@ class MyProfile extends Component {
     console.log(this)
     const {username, pictureUrl, created_at, updated_at} = {...this.state.user}
     return (
+
+
+
+      
       <div className="MyProfile">
+        <form onSubmit={(e)=>this.handleSubmit(e)}>
+          <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
+          <button type="submit">Save new profile picture</button>
+        </form>
+
+
         {this.showBooks()}
-        <p>Hello You {username}</p>
-        <img src={pictureUrl} />
+        
+        <img src={pictureUrl} height="100px" width="100px"/>
       </div>
     );
   }

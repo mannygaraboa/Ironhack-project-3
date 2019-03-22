@@ -22,19 +22,21 @@ class Dashboard extends Component {
 
   showUsers = () => {
     return this.state.users.map(user=>{
-        return (<li>
-                  <a href={'profile/'+user._id}> {user.username} </a>
-                  </li>
-        )
-      }
-    )
+      return (
+        <ul>
+        <li>
+          <a href={'profile/'+user._id}> {user.username} </a>
+        </li>
+        </ul>
+      )
+    })
   }
 
   render () {
     console.log(this)
     return (
       <div className="Dashboard">
-
+        <h1>User Profiles</h1>
       {this.showUsers()}
         {/* <Link to={"/Books"}>Click here to go to Books</Link>
         <br />
