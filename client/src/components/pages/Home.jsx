@@ -25,12 +25,12 @@ export default class Home extends Component {
         <h2>Home</h2>
         <p>This is a sample project with the MERN stack</p>
         
-        <form onSubmit={(e)=>this.handleSubmit(e)}>
+        {/* <form onSubmit={(e)=>this.handleSubmit(e)}>
           <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
           <button type="submit">Save new profile picture</button>
         </form>
 
-        <Books {...this.props} />
+        <Books {...this.props} /> */}
       </div>
     );
   }

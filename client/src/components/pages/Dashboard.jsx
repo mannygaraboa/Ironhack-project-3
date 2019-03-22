@@ -22,12 +22,12 @@ class Dashboard extends Component {
 
   showUsers = () => {
     return this.state.users.map(user=>{
-        return (<li>
-                  <a href={'profile/'+user._id}> {user.username} </a>
-                  </li>
-        )
-      }
-    )
+      return (
+        <li>
+          <a href={'profile/'+user._id}> {user.username} </a>
+        </li>
+      )
+    })
   }
 
   render () {

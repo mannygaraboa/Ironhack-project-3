@@ -29,8 +29,8 @@ class MyProfile extends Component {
     return (
       <div className="MyProfile">
         {this.showBooks()}
-        <p>Hello You {username}</p>
-        <img src={pictureUrl} />
+        <p>Hello {username}</p>
+        <img className="picture-url" src={pictureUrl} alt="type" height="10vh"/>
       </div>
     );
   }
