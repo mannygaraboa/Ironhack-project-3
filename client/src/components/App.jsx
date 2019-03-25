@@ -107,16 +107,13 @@ export default class App extends Component {
               
             </div>
 
-            <h2 className="welcome">Welcome, {this.state.user.username}!</h2>
+            <h2 className="welcome">Welcome {this.state.user.username}</h2>
               <p>
                 A social web application to help users find their path towards
                 Enlightenment
               </p>
 
           </header>
-
-
-
 
           
           <Switch>
