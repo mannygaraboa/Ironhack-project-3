@@ -6,7 +6,8 @@ import {SERVER_URL} from '../config'
 class MyProfile extends Component {
    state={
     user:{},
-    books:[]
+    books:[],
+    bio: String,
   }
 
 
@@ -41,22 +42,20 @@ class MyProfile extends Component {
 
   render () {
     console.log(this)
-    const {username, pictureUrl, created_at, updated_at} = {...this.state.user}
+    const {username, pictureUrl, bio, created_at, updated_at} = {...this.state.user}
     return (
-
-
-
-      
-      <div className="MyProfile">
+      <div className="my-profile">
         <form onSubmit={(e)=>this.handleSubmit(e)}>
-          <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
-          <button type="submit">Save new profile picture</button>
+          <p>Character Bio</p>
+          <textarea class="form-control" type="text" name="comment" rows="2" width="-50%" ></textarea>
+          <input type="file" onChange={(e) => this.handleChange(e)} /> <br/>
+          <button type="submit" VALUE="Refresh">Save new profile picture</button>
         </form>
 
 
         {this.showBooks()}
         
-        <img src={pictureUrl} height="100px" width="100px"/>
+        <img src={pictureUrl} height="200px" width="200px"/>
       </div>
     );
   }

@@ -200,11 +200,13 @@ ul {
     width:350px;
   }
   text-decoration: none;
+
+  .check-users {
+    color: white;
+    text-decoration: none;
+  }
 }
 
-.check-users {
-  color: white;
-}
 
 // --------------------
 // Style for SignUp component
@@ -235,4 +237,19 @@ ul {
     font-size: 1.2em;
     color: $primary;
   }
+}
+
+// --------------------
+// Style for my-profile component
+
+.my-profile {
+  width: -50%;
+  color: white;
+}
+
+// --------------------
+// Style for profile component
+
+.profile {
+  color: white;
 }

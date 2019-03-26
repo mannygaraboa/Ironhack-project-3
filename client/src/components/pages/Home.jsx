@@ -24,16 +24,12 @@ export default class Home extends Component {
   render() {                
     return (
       <div className="Home">
-        <h2 className="check-users">See other lilypads!</h2>
-          <Link to="/dashboard" >Dashboard</Link>
-
-        
+        {api.isLoggedIn()}
+        <h2 className="check-users">Explore the <Link to="/dashboard">Pond</Link></h2>
         {/* <form onSubmit={(e)=>this.handleSubmit(e)}>
           <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
           <button type="submit">Save new profile picture</button>
         </form> */}
-
-        
       </div>
     );
   }

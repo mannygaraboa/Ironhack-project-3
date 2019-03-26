@@ -7,7 +7,8 @@ import Books from './Books'
 class Profile extends Component {
   state={
     user:{},
-    books:[]
+    books:[],
+    bio: String,
   }
   componentDidMount(){
     console.log(this)
@@ -24,11 +25,12 @@ class Profile extends Component {
   
   render () {
     console.log(this)
-    const {username, pictureUrl, created_at, updated_at} = {...this.state.user}
+    const {username, pictureUrl, bio, created_at, updated_at} = {...this.state.user}
     return (
-      <div className="Profile">
+      <div className="profile">
         {this.showBooks()}
-        <p>Hello You {username}</p>
+        <p>{username}'s Lilypad</p>
+        <p>About Me: {bio}</p>
         <img src={pictureUrl} width="100px" height="100px"/>
 
         <Books {...this.props} />

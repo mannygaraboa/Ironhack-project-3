@@ -91,10 +91,10 @@ export default class App extends Component {
                   <Link to="/"> Home </Link>
 
                   <Link to="/dashboard" >
-                    Dashboard
+                    Pond
                   </Link>
                   <Link to="/my-profile" >
-                    my Profile
+                  {this.state.user.username}'s LilyPad
                   </Link>
                   <Link to="/" onClick={e => this.handleLogoutClick(e)}>
                     Logout
