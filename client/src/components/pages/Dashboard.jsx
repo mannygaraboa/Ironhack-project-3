@@ -36,7 +36,7 @@ class Dashboard extends Component {
     console.log(this)
     return (
       <div className="Dashboard">
-        <h1>User Profiles</h1>
+        <h1>Check out other Lilypads in the Pond</h1>
       {this.showUsers()}
         {/* <Link to={"/Books"}>Click here to go to Books</Link>
         <br />

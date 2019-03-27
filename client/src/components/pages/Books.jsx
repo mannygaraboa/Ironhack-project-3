@@ -87,7 +87,6 @@ class Books extends Component
           <button type="submit">Add</button>
         </form>
         <br />
-        <Link to={"/Dashboard"}>Dashboard</Link>
         {this.showBooks()}
       </div>
     )

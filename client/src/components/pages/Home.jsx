@@ -25,7 +25,7 @@ export default class Home extends Component {
     return (
       <div className="Home">
         {api.isLoggedIn()}
-        <h2 className="check-users">Explore the <Link to="/dashboard">Pond</Link></h2>
+        {/* <h2 className="check-users">Explore the <Link to="/dashboard">Pond</Link></h2> */}
         {/* <form onSubmit={(e)=>this.handleSubmit(e)}>
           <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
           <button type="submit">Save new profile picture</button>

@@ -10,8 +10,6 @@ class MyProfile extends Component {
     bio: String,
   }
 
-
-
   handleChange(e) {
     this.setState({
       file: e.target.files[0]
@@ -22,8 +20,6 @@ class MyProfile extends Component {
     // Reuse of the method "addPicture" from the file '../api'
     api.addPicture(this.state.file)
   }
-
-
 
   componentDidMount(){
     console.log(this)
@@ -51,8 +47,7 @@ class MyProfile extends Component {
           <input type="file" onChange={(e) => this.handleChange(e)} /> <br/>
           <button type="submit" VALUE="Refresh">Save new profile picture</button>
         </form>
-
-
+        
         {this.showBooks()}
         
         <img src={pictureUrl} height="200px" width="200px"/>
