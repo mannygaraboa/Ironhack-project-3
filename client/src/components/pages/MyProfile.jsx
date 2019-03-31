@@ -43,7 +43,7 @@ class MyProfile extends Component {
       <div className="my-profile">
         <form onSubmit={(e)=>this.handleSubmit(e)}>
           <p>Character Bio</p>
-          <textarea class="form-control" type="text" name="comment" rows="2" width="-50%" ></textarea>
+          <textarea class="form-control" type="text" name="comment" rows="2" ></textarea>
           <input type="file" onChange={(e) => this.handleChange(e)} /> <br/>
           <button type="submit" VALUE="Refresh">Save new profile picture</button>
         </form>

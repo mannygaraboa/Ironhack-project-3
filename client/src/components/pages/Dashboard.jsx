@@ -13,12 +13,10 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-
     Axios.get(`${SERVER_URL}/allUsers`).then(users=>{
       this.setState({users:users.data.all})
     })
   }
-
 
   showUsers = () => {
     return this.state.users.map(user=>{
@@ -37,6 +35,7 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <h1>Check out other Lilypads in the Pond</h1>
+
       {this.showUsers()}
         {/* <Link to={"/Books"}>Click here to go to Books</Link>
         <br />
